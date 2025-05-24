@@ -1,0 +1,14 @@
+{
+    "Home": {
+        "title": "Bienvenue sur The Pull Up Gallery",
+        "welcome": "Découvrez notre incroyable collection de barres de traction et d'équipements de fitness.",
+        "switchLanguage": "Choisir la langue",
+        "languages": {
+        "en": "Anglais",
+        "es": "Espagnol",
+        "fr": "Français",
+        "de": "Allemand",
+        "nl": "Néerlandais"
+        }
+    }
+}

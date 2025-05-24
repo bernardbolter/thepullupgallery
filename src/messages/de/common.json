@@ -1,0 +1,14 @@
+{
+  "Home": {
+    "title": "Willkommen bei The Pullup Gallery",
+    "welcome": "Erlebe Kunst in Augmented Reality",
+    "switchLanguage": "Sprache auswählen",
+    "languages": {
+      "en": "Englisch",
+      "es": "Spanisch",
+      "fr": "Französisch",
+      "de": "Deutsch",
+      "nl": "Niederländisch"
+    }
+  }
+}
