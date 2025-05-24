@@ -3,6 +3,9 @@
     "title": "Welkom bij The Pullup Gallery",
     "welcome": "Ervaar kunst in augmented reality",
     "switchLanguage": "Selecteer taal",
+    "login": "Inloggen",
+    "register": "Registreren",
+    "welcomeBack": "Welkom terug!",
     "languages": {
       "en": "Engels",
       "es": "Spaans",
@@ -10,5 +13,52 @@
       "de": "Duits",
       "nl": "Nederlands"
     }
+  },
+  "Auth": {
+    "login": "Inloggen",
+    "logout": "Uitloggen",
+    "register": "Registreren",
+    "email": "E-mail",
+    "password": "Wachtwoord",
+    "username": "Gebruikersnaam",
+    "firstName": "Voornaam",
+    "lastName": "Achternaam",
+    "rememberMe": "Onthoud mij",
+    "forgotPassword": "Wachtwoord vergeten?",
+    "noAccount": "Nog geen account?",
+    "haveAccount": "Al een account?",
+    "signIn": "Inloggen",
+    "signUp": "Aanmelden",
+    "loggedInAs": "Ingelogd als",
+    "dashboard": "Dashboard",
+    "profile": "Profiel",
+    "welcomeBack": "Welkom terug!",
+    "createAccount": "Maak een account aan",
+    "loggingIn": "Inloggen...",
+    "errors": {
+      "required": "Dit veld is verplicht",
+      "emailInvalid": "Vul een geldig e-mailadres in",
+      "passwordLength": "Wachtwoord moet minimaal 6 tekens lang zijn",
+      "loginFailed": "Inloggen mislukt. Controleer je inloggegevens.",
+      "registrationFailed": "Registratie mislukt. Probeer het opnieuw.",
+      "userExists": "Er bestaat al een gebruiker met dit e-mailadres"
+    },
+    "success": {
+      "login": "Succesvol ingelogd!",
+      "logout": "Succesvol uitgelogd!",
+      "register": "Account succesvol aangemaakt!"
+    }
+  },
+  "Dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welkom",
+    "dashboardDescription": "Dit is uw persoonlijke dashboard. U kunt deze pagina bekijken omdat u bent ingelogd met uw WordPress-account.",
+    "accountInfo": "Accountinformatie",
+    "username": "Gebruikersnaam",
+    "email": "E-mail",
+    "roles": "Rollen",
+    "actions": "Snelle acties",
+    "editProfile": "Profiel bewerken",
+    "viewContent": "Mijn inhoud bekijken"
   }
 }

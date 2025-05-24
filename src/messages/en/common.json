@@ -3,6 +3,9 @@
     "title": "Welcome to The Pullup Gallery",
     "welcome": "Experience art in augmented reality",
     "switchLanguage": "Select your language",
+    "login": "Login",
+    "register": "Register",
+    "welcomeBack": "Welcome back!",
     "languages": {
       "en": "English",
       "es": "Spanish",
@@ -10,5 +13,52 @@
       "de": "German",
       "nl": "Dutch"
     }
+  },
+  "Auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "username": "Username",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "loggedInAs": "Logged in as", 
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "welcomeBack": "Welcome back!",
+    "createAccount": "Create your account",
+    "loggingIn": "Logging in...",
+    "errors": {
+      "required": "This field is required",
+      "emailInvalid": "Please enter a valid email address",
+      "passwordLength": "Password must be at least 6 characters",
+      "loginFailed": "Login failed. Please check your credentials.",
+      "registrationFailed": "Registration failed. Please try again.",
+      "userExists": "A user with this email already exists"
+    },
+    "success": {
+      "login": "Successfully logged in!",
+      "logout": "Successfully logged out!",
+      "register": "Account created successfully!"
+    }
+  },
+  "Dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome",
+    "dashboardDescription": "This is your personal dashboard. You can access this page because you are logged in with your WordPress account.",
+    "accountInfo": "Account Information",
+    "username": "Username",
+    "email": "Email",
+    "roles": "Roles",
+    "actions": "Quick Actions",
+    "editProfile": "Edit Profile",
+    "viewContent": "View My Content"
   }
 }

@@ -1,14 +1,64 @@
 {
-    "Home": {
-        "title": "Bienvenue sur The Pull Up Gallery",
-        "welcome": "Découvrez notre incroyable collection de barres de traction et d'équipements de fitness.",
-        "switchLanguage": "Choisir la langue",
-        "languages": {
-        "en": "Anglais",
-        "es": "Espagnol",
-        "fr": "Français",
-        "de": "Allemand",
-        "nl": "Néerlandais"
-        }
+  "Home": {
+    "title": "Bienvenue sur The Pull Up Gallery",
+    "welcome": "Découvrez notre incroyable collection de barres de traction et d'équipements de fitness.",
+    "switchLanguage": "Choisir la langue",
+    "login": "Connexion",
+    "register": "S'inscrire",
+    "welcomeBack": "Content de vous revoir !",
+    "languages": {
+      "en": "Anglais",
+      "es": "Espagnol",
+      "fr": "Français",
+      "de": "Allemand",
+      "nl": "Néerlandais"
     }
+  },
+  "Auth": {
+    "login": "Connexion",
+    "logout": "Déconnexion",
+    "register": "S'inscrire",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "username": "Nom d'utilisateur",
+    "firstName": "Prénom",
+    "lastName": "Nom de famille",
+    "rememberMe": "Se souvenir de moi",
+    "forgotPassword": "Mot de passe oublié ?",
+    "noAccount": "Vous n'avez pas de compte ?",
+    "haveAccount": "Vous avez déjà un compte ?",
+    "signIn": "Se connecter",
+    "signUp": "S'inscrire",
+    "loggedInAs": "Connecté en tant que", 
+    "dashboard": "Tableau de bord",
+    "profile": "Profil",
+    "welcomeBack": "Content de vous revoir !",
+    "createAccount": "Créer un compte",
+    "loggingIn": "Connexion en cours...",
+    "errors": {
+      "required": "Ce champ est obligatoire",
+      "emailInvalid": "Veuillez entrer une adresse e-mail valide",
+      "passwordLength": "Le mot de passe doit contenir au moins 6 caractères",
+      "loginFailed": "Échec de la connexion. Veuillez vérifier vos identifiants.",
+      "registrationFailed": "Échec de l'inscription. Veuillez réessayer.",
+      "userExists": "Un utilisateur avec cet e-mail existe déjà"
+    },
+    "success": {
+      "login": "Connexion réussie !",
+      "logout": "Déconnexion réussie !",
+      "register": "Compte créé avec succès !"
+    }
+  },
+  "Dashboard": {
+    "title": "Tableau de bord",
+    "welcome": "Bienvenue",
+    "dashboardDescription": "Ceci est votre tableau de bord personnel. Vous pouvez accéder à cette page car vous êtes connecté avec votre compte WordPress.",
+    "accountInfo": "Informations du compte",
+    "username": "Nom d'utilisateur",
+    "email": "E-mail",
+    "roles": "Rôles",
+    "actions": "Actions rapides",
+    "editProfile": "Modifier le profil",
+    "viewContent": "Voir mon contenu"
+  }
 }

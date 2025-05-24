@@ -3,6 +3,9 @@
     "title": "Willkommen bei The Pullup Gallery",
     "welcome": "Erlebe Kunst in Augmented Reality",
     "switchLanguage": "Sprache auswählen",
+    "login": "Anmelden",
+    "register": "Registrieren",
+    "welcomeBack": "Willkommen zurück!",
     "languages": {
       "en": "Englisch",
       "es": "Spanisch",
@@ -10,5 +13,52 @@
       "de": "Deutsch",
       "nl": "Niederländisch"
     }
+  },
+  "Auth": {
+    "login": "Anmelden",
+    "logout": "Abmelden",
+    "register": "Registrieren",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "username": "Benutzername",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "rememberMe": "Angemeldet bleiben",
+    "forgotPassword": "Passwort vergessen?",
+    "noAccount": "Noch kein Konto?",
+    "haveAccount": "Bereits ein Konto?",
+    "signIn": "Anmelden",
+    "signUp": "Registrieren",
+    "loggedInAs": "Angemeldet als",
+    "dashboard": "Dashboard",
+    "profile": "Profil",
+    "welcomeBack": "Willkommen zurück!",
+    "createAccount": "Konto erstellen",
+    "loggingIn": "Anmeldung läuft...",
+    "errors": {
+      "required": "Dieses Feld ist erforderlich",
+      "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+      "passwordLength": "Das Passwort muss mindestens 6 Zeichen lang sein",
+      "loginFailed": "Anmeldung fehlgeschlagen. Bitte überprüfen Sie Ihre Anmeldedaten.",
+      "registrationFailed": "Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+      "userExists": "Ein Benutzer mit dieser E-Mail existiert bereits"
+    },
+    "success": {
+      "login": "Erfolgreich angemeldet!",
+      "logout": "Erfolgreich abgemeldet!",
+      "register": "Konto erfolgreich erstellt!"
+    }
+  },
+  "Dashboard": {
+    "title": "Dashboard",
+    "welcome": "Willkommen",
+    "dashboardDescription": "Dies ist Ihr persönliches Dashboard. Sie können auf diese Seite zugreifen, da Sie mit Ihrem WordPress-Konto angemeldet sind.",
+    "accountInfo": "Kontoinformationen",
+    "username": "Benutzername",
+    "email": "E-Mail",
+    "roles": "Rollen",
+    "actions": "Schnellaktionen",
+    "editProfile": "Profil bearbeiten",
+    "viewContent": "Meine Inhalte anzeigen"
   }
 }

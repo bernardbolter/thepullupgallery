@@ -3,6 +3,9 @@
     "title": "Bienvenido a The Pullup Gallery",
     "welcome": "Experimenta el arte en realidad aumentada",
     "switchLanguage": "Selecciona tu idioma",
+    "login": "Iniciar sesión",
+    "register": "Registrarse",
+    "welcomeBack": "¡Bienvenido de nuevo!",
     "languages": {
       "en": "Inglés",
       "es": "Español",
@@ -10,5 +13,52 @@
       "de": "Alemán",
       "nl": "Neerlandés"
     }
+  },
+  "Auth": {
+    "login": "Iniciar sesión",
+    "logout": "Cerrar sesión",
+    "register": "Registrarse",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "username": "Nombre de usuario",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "rememberMe": "Recuérdame",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "noAccount": "¿No tienes una cuenta?",
+    "haveAccount": "¿Ya tienes una cuenta?",
+    "signIn": "Iniciar sesión",
+    "signUp": "Registrarse",
+    "loggedInAs": "Conectado como", 
+    "dashboard": "Panel de control",
+    "profile": "Perfil",
+    "welcomeBack": "¡Bienvenido de nuevo!",
+    "createAccount": "Crea tu cuenta",
+    "loggingIn": "Iniciando sesión...",
+    "errors": {
+      "required": "Este campo es obligatorio",
+      "emailInvalid": "Por favor ingresa un correo electrónico válido",
+      "passwordLength": "La contraseña debe tener al menos 6 caracteres",
+      "loginFailed": "Error al iniciar sesión. Por favor verifica tus credenciales.",
+      "registrationFailed": "Error en el registro. Por favor inténtalo de nuevo.",
+      "userExists": "Ya existe un usuario con este correo electrónico"
+    },
+    "success": {
+      "login": "¡Sesión iniciada correctamente!",
+      "logout": "¡Sesión cerrada correctamente!",
+      "register": "¡Cuenta creada exitosamente!"
+    }
+  },
+  "Dashboard": {
+    "title": "Panel de control",
+    "welcome": "Bienvenido",
+    "dashboardDescription": "Este es su panel de control personal. Puedes acceder a esta página porque has iniciado sesión con tu cuenta de WordPress.",
+    "accountInfo": "Información de la cuenta",
+    "username": "Nombre de usuario",
+    "email": "Correo electrónico",
+    "roles": "Roles",
+    "actions": "Acciones rápidas",
+    "editProfile": "Editar perfil",
+    "viewContent": "Ver mi contenido"
   }
 }
