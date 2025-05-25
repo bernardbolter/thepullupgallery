@@ -3,6 +3,8 @@ declare namespace NodeJS {
     // WordPress API URL
     WORDPRESS_URL?: string;
     NEXT_PUBLIC_WORDPRESS_URL?: string;
+
+    NEXT_PUBLIC_URL_GRAPHQL?: string;
     
     // WordPress Admin Credentials
     WORDPRESS_USERNAME?: string;

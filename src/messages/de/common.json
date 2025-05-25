@@ -16,7 +16,27 @@
       "nl": "Niederländisch"
     }
   },
+  "Artists": {
+    "title": "Künstler",
+    "loading": "Künstler werden geladen...",
+    "error": "Fehler beim Laden der Künstler",
+    "noArtists": "Keine Künstler gefunden",
+    "viewProfile": "Profil anzeigen"
+  },
+  "Locations": {
+    "title": "Standorte",
+    "loading": "Standorte werden geladen...",
+    "error": "Fehler beim Laden der Standorte",
+    "noLocations": "Keine Standorte gefunden",
+    "viewOnMap": "Auf Karte anzeigen",
+    "openingHours": "Öffnungszeiten",
+    "address": "Adresse",
+    "contact": "Kontakt",
+    "website": "Webseite"
+  },
   "Auth": {
+    "artists": "Künstler",
+    "locations": "Standorte",
     "login": "Anmelden",
     "logout": "Abmelden",
     "register": "Registrieren",

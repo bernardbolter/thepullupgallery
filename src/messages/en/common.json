@@ -16,7 +16,27 @@
       "nl": "Dutch"
     }
   },
+  "Artists": {
+    "title": "Artists",
+    "loading": "Loading artists...",
+    "error": "Error loading artists",
+    "noArtists": "No artists found",
+    "viewProfile": "View Profile"
+  },
+  "Locations": {
+    "title": "Locations",
+    "loading": "Loading locations...",
+    "error": "Error loading locations",
+    "noLocations": "No locations found",
+    "viewOnMap": "View on Map",
+    "openingHours": "Opening Hours",
+    "address": "Address",
+    "contact": "Contact",
+    "website": "Website"
+  },
   "Auth": {
+    "artists": "Artists",
+    "locations": "Locations",
     "login": "Login",
     "logout": "Logout",
     "register": "Register",

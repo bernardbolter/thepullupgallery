@@ -16,7 +16,27 @@
       "nl": "Nederlands"
     }
   },
+  "Artists": {
+    "title": "Kunstenaars",
+    "loading": "Kunstenaars laden...",
+    "error": "Fout bij het laden van de kunstenaars",
+    "noArtists": "Geen kunstenaars gevonden",
+    "viewProfile": "Bekijk Profiel"
+  },
+  "Locations": {
+    "title": "Locaties",
+    "loading": "Locaties laden...",
+    "error": "Fout bij het laden van de locaties",
+    "noLocations": "Geen locaties gevonden",
+    "viewOnMap": "Bekijk op Kaart",
+    "openingHours": "Openingstijden",
+    "address": "Adres",
+    "contact": "Contact",
+    "website": "Website"
+  },
   "Auth": {
+    "artists": "Kunstenaars",
+    "locations": "Locaties",
     "login": "Inloggen",
     "logout": "Uitloggen",
     "register": "Registreren",

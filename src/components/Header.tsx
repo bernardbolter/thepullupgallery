@@ -48,6 +48,20 @@ export default function Header() {
               </Link>
             </div>
           )}
+           <Link 
+              href="/[locale]/artists" 
+              as={`/${pathname.split('/')[1]}/artists`}
+              className={`inline-flex items-center px-1 pt-1 border-b-2 ${pathname.includes('artists') ? 'border-indigo-500 text-gray-900' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'}`}
+            >
+              {t('artists')}
+            </Link>
+            <Link 
+              href="/[locale]/locations" 
+              as={`/${pathname.split('/')[1]}/locations`}
+              className={`inline-flex items-center px-1 pt-1 border-b-2 ${pathname.includes('locations') ? 'border-indigo-500 text-gray-900' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'}`}
+            >
+              {t('locations')}
+            </Link>
         </nav>
       </div>
     </header>

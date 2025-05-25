@@ -16,7 +16,27 @@
       "nl": "Néerlandais"
     }
   },
+  "Artists": {
+    "title": "Artistes",
+    "loading": "Chargement des artistes...",
+    "error": "Erreur lors du chargement des artistes",
+    "noArtists": "Aucun artiste trouvé",
+    "viewProfile": "Voir le Profil"
+  },
+  "Locations": {
+    "title": "Lieux",
+    "loading": "Chargement des lieux...",
+    "error": "Erreur lors du chargement des lieux",
+    "noLocations": "Aucun lieu trouvé",
+    "viewOnMap": "Voir sur la Carte",
+    "openingHours": "Heures d'Ouverture",
+    "address": "Adresse",
+    "contact": "Contact",
+    "website": "Site Web"
+  },
   "Auth": {
+    "artists": "Artistes",
+    "locations": "Lieux",
     "login": "Connexion",
     "logout": "Déconnexion",
     "register": "S'inscrire",
