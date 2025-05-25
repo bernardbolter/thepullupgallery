@@ -42,7 +42,17 @@
     "addNewLocation": "Add New Location",
     "toggleLocationsList": "Toggle locations list",
     "loginOrRegister": "Login or register",
-    "toAddLocation": "to add a new location"
+    "toAddLocation": "to add a new location",
+    "locationTitle": "Location Title",
+    "locationDescription": "Description",
+    "enterLocationTitle": "Enter location name",
+    "enterLocationDescription": "Enter description (optional)",
+    "selectOnMap": "Select Location on Map",
+    "latitude": "Latitude",
+    "longitude": "Longitude",
+    "locationImage": "Upload Image",
+    "cancel": "Cancel",
+    "submit": "Submit Location"
   },
   "Navigation": {
     "home": "Home",

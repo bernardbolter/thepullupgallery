@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useAuth } from '@/auth/hooks';
+import SelectLocation from './SelectLocation';
 
 interface Location {
   title?: string;
@@ -45,6 +46,7 @@ export default function LocationsList({
   const locale = usePathname();
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredLocations, setFilteredLocations] = useState<Location[]>(locations);
+  const [selectLocationOpen, setSelectLocationOpen] = useState(false);
 
   // Filter locations when search term changes
   useEffect(() => {
@@ -65,7 +67,9 @@ export default function LocationsList({
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (isOpen && !target.closest('.locations-list__container') && !target.closest('.location-button__container')) {
+      if (isOpen && !target.closest('.locations-list__container') && 
+          !target.closest('.location-button__container') && 
+          !target.closest('.select-location__container')) {
         onClose();
       }
     };
@@ -87,17 +91,18 @@ export default function LocationsList({
   }, [isOpen]);
 
   return (
-    <div className={`locations-list__container ${isOpen ? 'open' : ''}`}>
-      <div className="locations-list__header">
-        <h2>{t('locationsList')}</h2>
-        <button 
-          className="locations-list__close-button"
-          onClick={onClose}
-          aria-label="Close"
-        >
-          ×
-        </button>
-      </div>
+    <>
+      <div className={`locations-list__container ${isOpen ? 'open' : ''}`}>
+        <div className="locations-list__header">
+          <h2>{t('locationsList')}</h2>
+          <button 
+            className="locations-list__close-button"
+            onClick={onClose}
+            aria-label="Close"
+          >
+            ×
+          </button>
+        </div>
       
       <div className="locations-list__search">
         <input
@@ -139,9 +144,15 @@ export default function LocationsList({
       
       <div className="locations-list__footer">
         {useAuth().isAuthenticated ? (
-          <Link href={`/${locale}/add-location`} className="locations-list__add-button">
+          <button 
+            className="locations-list__add-button"
+            onClick={() => {
+              onClose(); // Close the locations list
+              setSelectLocationOpen(true); // Open the select location modal
+            }}
+          >
             {t('addNewLocation')}
-          </Link>
+          </button>
         ) : (
           <div className="locations-list__login-prompt">
             <Link href="/login" className="locations-list__login-link">
@@ -150,6 +161,19 @@ export default function LocationsList({
           </div>
         )}
       </div>
-    </div>
+      </div>
+      
+      {/* SelectLocation modal */}
+      <SelectLocation 
+        isOpen={selectLocationOpen} 
+        onClose={() => {
+          setSelectLocationOpen(false);
+          // Reopen the locations list when the select location modal is closed
+          setTimeout(() => {
+            if (!isOpen) onClose();
+          }, 300); // Delay to allow animation to complete
+        }} 
+      />
+    </>
   );
 }
