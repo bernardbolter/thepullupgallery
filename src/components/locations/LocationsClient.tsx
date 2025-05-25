@@ -43,6 +43,7 @@ const LocationMap = dynamic<LocationMapProps>(
 
 export default function LocationsClient({ initialLocations }: LocationsClientProps) {
   const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
+  const [selectedLocation, setSelectedLocation] = useState<Location | null>(null);
   
   // Get user location on client side only
   useEffect(() => {
@@ -69,12 +70,30 @@ export default function LocationsClient({ initialLocations }: LocationsClientPro
     return <div className="text-center py-8">{t('noLocations')}</div>;
   }
   
+  // Handle location selection to update map view
+  const handleLocationSelect = (location: Location) => {
+    setSelectedLocation(location);
+    
+    // If the location has pullupLocation coordinates, use them
+    if (location.pullupLocation?.lat && location.pullupLocation?.lng) {
+      // We need to update the map view to center on this location
+      // The LocationMap component will handle this with the selectedLocation prop
+    }
+  };
+  
   // At this point, TypeScript knows initialLocations is Location[]
   return (
     <div className="locations-client__container">
       <MainNavigation />
-      <LocationMap locations={initialLocations} userLocation={userLocation} />
-      <LocationButton />
+      <LocationMap 
+        locations={initialLocations} 
+        userLocation={userLocation} 
+        selectedLocation={selectedLocation}
+      />
+      <LocationButton 
+        locations={initialLocations} 
+        onLocationSelect={handleLocationSelect} 
+      />
     </div>
   );
 }

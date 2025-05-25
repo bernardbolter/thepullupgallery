@@ -18,17 +18,25 @@ interface Location {
 
 interface MapControllerProps {
   userLocation: [number, number] | null;
+  selectedLocation: Location | null;
 }
 
-// Component to recenter the map based on user location
-function MapController({ userLocation }: MapControllerProps) {
+// Component to recenter the map based on user location or selected location
+function MapController({ userLocation, selectedLocation }: MapControllerProps) {
   const map = useMap();
   
   useEffect(() => {
-    if (userLocation) {
+    if (selectedLocation?.pullupLocation?.lat && selectedLocation?.pullupLocation?.lng) {
+      // Priority to selected location
+      map.setView(
+        [selectedLocation.pullupLocation.lat, selectedLocation.pullupLocation.lng], 
+        15
+      );
+    } else if (userLocation) {
+      // Fall back to user location if no selected location
       map.setView(userLocation, 13);
     }
-  }, [map, userLocation]);
+  }, [map, userLocation, selectedLocation]);
   
   return null;
 }
@@ -36,9 +44,10 @@ function MapController({ userLocation }: MapControllerProps) {
 export interface LocationMapProps {
   locations: Location[];
   userLocation: [number, number] | null;
+  selectedLocation: Location | null;
 }
 
-const LocationMap: React.FC<LocationMapProps> = ({ locations, userLocation }) => {
+const LocationMap: React.FC<LocationMapProps> = ({ locations, userLocation, selectedLocation }) => {
   const [icon, setIcon] = useState<L.Icon | null>(null);
   
   // Berlin coordinates as default
@@ -73,19 +82,24 @@ const LocationMap: React.FC<LocationMapProps> = ({ locations, userLocation }) =>
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       
-      <MapController userLocation={userLocation} />
+      <MapController userLocation={userLocation} selectedLocation={selectedLocation} />
       
       {locations.map((location, index) => {
+        console.log(location);
         // Skip locations without coordinates
         if (!location?.pullupLocation?.lat || !location?.pullupLocation?.lng) {
           return null;
         }
+        
+        // Check if this is the selected location to use a different icon or style
+        const isSelected = selectedLocation?.id === location.id;
         
         return (
           <Marker 
             key={location.id || `location-${index}`}
             position={[location.pullupLocation.lat, location.pullupLocation.lng]}
             icon={icon}
+            opacity={isSelected ? 1 : 0.7}
           >
             <Popup>
               <div className="p-2">

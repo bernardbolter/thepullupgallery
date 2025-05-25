@@ -26,14 +26,32 @@
   "Locations": {
     "title": "Standorte",
     "loading": "Standorte werden geladen...",
+    "loadingMap": "Karte wird geladen...",
     "error": "Fehler beim Laden der Standorte",
     "noLocations": "Keine Standorte gefunden",
     "unnamedLocation": "Unbenannter Standort",
     "viewOnMap": "Auf Karte anzeigen",
     "openingHours": "Öffnungszeiten",
+    "noOpeningHours": "Keine Öffnungszeiten verfügbar",
     "address": "Adresse",
     "contact": "Kontakt",
-    "website": "Webseite"
+    "website": "Webseite",
+    "getDirections": "Wegbeschreibung",
+    "locationsList": "Standortliste",
+    "searchLocations": "Standorte durchsuchen...",
+    "addNewLocation": "Neuen Standort hinzufügen",
+    "toggleLocationsList": "Standortliste ein-/ausblenden"
+  },
+  "Navigation": {
+    "home": "Startseite",
+    "ar": "AR",
+    "artists": "Künstler",
+    "locations": "Standorte",
+    "locationsList": "Standortliste",
+    "searchLocations": "Standorte durchsuchen...",
+    "noLocationsFound": "Keine Standorte gefunden",
+    "addNewLocation": "Neuen Standort hinzufügen",
+    "toggleLocationsList": "Standortliste ein-/ausblenden"
   },
   "Auth": {
     "artists": "Künstler",

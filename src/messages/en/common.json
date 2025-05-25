@@ -26,14 +26,34 @@
   "Locations": {
     "title": "Locations",
     "loading": "Loading locations...",
+    "loadingMap": "Loading map...",
     "error": "Error loading locations",
     "noLocations": "No locations found",
     "unnamedLocation": "Unnamed Location",
     "viewOnMap": "View on Map",
     "openingHours": "Opening Hours",
+    "noOpeningHours": "No opening hours available",
     "address": "Address",
     "contact": "Contact",
-    "website": "Website"
+    "website": "Website",
+    "getDirections": "Get Directions",
+    "locationsList": "Locations List",
+    "searchLocations": "Search locations...",
+    "addNewLocation": "Add New Location",
+    "toggleLocationsList": "Toggle locations list",
+    "loginOrRegister": "Login or register",
+    "toAddLocation": "to add a new location"
+  },
+  "Navigation": {
+    "home": "Home",
+    "ar": "AR",
+    "artists": "Artists",
+    "locations": "Locations",
+    "locationsList": "Locations List",
+    "searchLocations": "Search locations...",
+    "noLocationsFound": "No locations found",
+    "addNewLocation": "Add New Location",
+    "toggleLocationsList": "Toggle locations list"
   },
   "Auth": {
     "artists": "Artists",

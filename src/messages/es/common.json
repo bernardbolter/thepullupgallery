@@ -26,14 +26,32 @@
   "Locations": {
     "title": "Ubicaciones",
     "loading": "Cargando ubicaciones...",
+    "loadingMap": "Cargando mapa...",
     "error": "Error al cargar las ubicaciones",
     "noLocations": "No se encontraron ubicaciones",
     "unnamedLocation": "Ubicación sin nombre",
-    "viewOnMap": "Ver en el Mapa",
-    "openingHours": "Horario de Apertura",
+    "viewOnMap": "Ver en el mapa",
+    "openingHours": "Horario de atención",
+    "noOpeningHours": "Horario no disponible",
     "address": "Dirección",
     "contact": "Contacto",
-    "website": "Sitio Web"
+    "website": "Sitio Web",
+    "getDirections": "Cómo llegar",
+    "locationsList": "Lista de ubicaciones",
+    "searchLocations": "Buscar ubicaciones...",
+    "addNewLocation": "Añadir nueva ubicación",
+    "toggleLocationsList": "Mostrar/ocultar lista de ubicaciones"
+  },
+  "Navigation": {
+    "home": "Inicio",
+    "ar": "RA",
+    "artists": "Artistas",
+    "locations": "Ubicaciones",
+    "locationsList": "Lista de Ubicaciones",
+    "searchLocations": "Buscar ubicaciones...",
+    "noLocationsFound": "No se encontraron ubicaciones",
+    "addNewLocation": "Añadir Nueva Ubicación",
+    "toggleLocationsList": "Alternar lista de ubicaciones"
   },
   "Auth": {
     "artists": "Artistas",

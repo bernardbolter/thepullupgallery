@@ -26,14 +26,32 @@
   "Locations": {
     "title": "Lieux",
     "loading": "Chargement des lieux...",
+    "loadingMap": "Chargement de la carte...",
     "error": "Erreur lors du chargement des lieux",
     "noLocations": "Aucun lieu trouvé",
     "unnamedLocation": "Lieu sans nom",
-    "viewOnMap": "Voir sur la Carte",
-    "openingHours": "Heures d'Ouverture",
+    "viewOnMap": "Voir sur la carte",
+    "openingHours": "Heures d'ouverture",
+    "noOpeningHours": "Aucun horaire disponible",
     "address": "Adresse",
     "contact": "Contact",
-    "website": "Site Web"
+    "website": "Site Web",
+    "getDirections": "Itinéraire",
+    "locationsList": "Liste des lieux",
+    "searchLocations": "Rechercher des lieux...",
+    "addNewLocation": "Ajouter un nouveau lieu",
+    "toggleLocationsList": "Afficher/masquer la liste des lieux"
+  },
+  "Navigation": {
+    "home": "Accueil",
+    "ar": "RA",
+    "artists": "Artistes",
+    "locations": "Lieux",
+    "locationsList": "Liste des Lieux",
+    "searchLocations": "Rechercher des lieux...",
+    "noLocationsFound": "Aucun lieu trouvé",
+    "addNewLocation": "Ajouter un Nouveau Lieu",
+    "toggleLocationsList": "Basculer la liste des lieux"
   },
   "Auth": {
     "artists": "Artistes",

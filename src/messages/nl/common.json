@@ -26,14 +26,27 @@
   "Locations": {
     "title": "Locaties",
     "loading": "Locaties laden...",
+    "loadingMap": "Kaart laden...",
     "error": "Fout bij het laden van de locaties",
     "noLocations": "Geen locaties gevonden",
     "unnamedLocation": "Naamloze locatie",
-    "viewOnMap": "Bekijk op Kaart",
+    "viewOnMap": "Bekijk op kaart",
     "openingHours": "Openingstijden",
+    "noOpeningHours": "Geen openingstijden beschikbaar",
     "address": "Adres",
     "contact": "Contact",
-    "website": "Website"
+    "website": "Website",
+    "getDirections": "Routebeschrijving",
+    "locationsList": "Lijst met locaties",
+    "searchLocations": "Zoek locaties...",
+    "addNewLocation": "Nieuwe locatie toevoegen",
+    "toggleLocationsList": "Locatielijst tonen/verbergen"
+  },
+  "Navigation": {
+    "home": "Home",
+    "ar": "AR",
+    "artists": "Kunstenaars",
+    "locations": "Locaties"
   },
   "Auth": {
     "artists": "Kunstenaars",
