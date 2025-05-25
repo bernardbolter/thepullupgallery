@@ -1,0 +1,154 @@
+// Text utilities
+@each $name, $color in $colors {
+  .text-#{$name} {
+    color: $color;
+  }
+  
+  .bg-#{$name} {
+    background-color: $color;
+  }
+  
+  .border-#{$name} {
+    border-color: $color;
+  }
+}
+
+// Spacing utilities
+@each $size, $value in $spacing {
+  .m-#{$size} { margin: $value !important; }
+  .mt-#{$size} { margin-top: $value !important; }
+  .mr-#{$size} { margin-right: $value !important; }
+  .mb-#{$size} { margin-bottom: $value !important; }
+  .ml-#{$size} { margin-left: $value !important; }
+  .mx-#{$size} { 
+    margin-left: $value !important;
+    margin-right: $value !important; 
+  }
+  .my-#{$size} { 
+    margin-top: $value !important;
+    margin-bottom: $value !important; 
+  }
+  
+  .p-#{$size} { padding: $value !important; }
+  .pt-#{$size} { padding-top: $value !important; }
+  .pr-#{$size} { padding-right: $value !important; }
+  .pb-#{$size} { padding-bottom: $value !important; }
+  .pl-#{$size} { padding-left: $value !important; }
+  .px-#{$size} { 
+    padding-left: $value !important;
+    padding-right: $value !important; 
+  }
+  .py-#{$size} { 
+    padding-top: $value !important;
+    padding-bottom: $value !important; 
+  }
+}
+
+// Flex utilities
+.flex {
+  display: flex;
+  
+  &-row { flex-direction: row; }
+  &-col { flex-direction: column; }
+  &-wrap { flex-wrap: wrap; }
+  &-nowrap { flex-wrap: nowrap; }
+  
+  &-1 { flex: 1; }
+  &-auto { flex: 1 1 auto; }
+  &-none { flex: none; }
+  
+  &-center {
+    align-items: center;
+    justify-content: center;
+  }
+  
+  &-between { justify-content: space-between; }
+  &-around { justify-content: space-around; }
+  &-evenly { justify-content: space-evenly; }
+  &-start { justify-content: flex-start; }
+  &-end { justify-content: flex-end; }
+  
+  &-items-start { align-items: flex-start; }
+  &-items-end { align-items: flex-end; }
+  &-items-center { align-items: center; }
+  &-items-baseline { align-items: baseline; }
+  &-items-stretch { align-items: stretch; }
+}
+
+// Grid utilities
+.grid {
+  display: grid;
+  
+  @for $i from 1 through 12 {
+    &-#{$i} {
+      grid-template-columns: repeat($i, minmax(0, 1fr));
+    }
+  }
+  
+  &-gap-1 { gap: map-get($spacing, 1); }
+  &-gap-2 { gap: map-get($spacing, 2); }
+  &-gap-3 { gap: map-get($spacing, 3); }
+  &-gap-4 { gap: map-get($spacing, 4); }
+  &-gap-5 { gap: map-get($spacing, 5); }
+}
+
+// Visibility utilities
+.hidden { display: none !important; }
+.block { display: block !important; }
+.inline { display: inline !important; }
+.inline-block { display: inline-block !important; }
+
+// Text utilities
+@each $size, $value in $font-sizes {
+  .text-#{$size} { font-size: $value; }
+}
+
+@each $weight, $value in $font-weights {
+  .font-#{$weight} { font-weight: $value; }
+}
+
+.text-uppercase { text-transform: uppercase; }
+.text-lowercase { text-transform: lowercase; }
+.text-capitalize { text-transform: capitalize; }
+.text-ellipsis { 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Border radius utilities
+@each $name, $value in $border-radius {
+  .rounded-#{$name} { border-radius: $value; }
+  .rounded-t-#{$name} { 
+    border-top-left-radius: $value;
+    border-top-right-radius: $value;
+  }
+  .rounded-r-#{$name} { 
+    border-top-right-radius: $value;
+    border-bottom-right-radius: $value;
+  }
+  .rounded-b-#{$name} { 
+    border-bottom-right-radius: $value;
+    border-bottom-left-radius: $value;
+  }
+  .rounded-l-#{$name} { 
+    border-top-left-radius: $value;
+    border-bottom-left-radius: $value;
+  }
+}
+
+// Shadow utilities
+@each $name, $value in $box-shadow {
+  .shadow-#{$name} { box-shadow: #{$value}; }
+}
+
+// Responsive utilities
+@each $breakpoint, $value in $breakpoints {
+  @media (min-width: $value) {
+    .#{$breakpoint}\:hidden { display: none !important; }
+    .#{$breakpoint}\:block { display: block !important; }
+    .#{$breakpoint}\:flex { display: flex !important; }
+    .#{$breakpoint}\:inline { display: inline !important; }
+    .#{$breakpoint}\:inline-block { display: inline-block !important; }
+  }
+}

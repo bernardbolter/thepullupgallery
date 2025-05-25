@@ -28,6 +28,7 @@
     "loading": "Locaties laden...",
     "error": "Fout bij het laden van de locaties",
     "noLocations": "Geen locaties gevonden",
+    "unnamedLocation": "Naamloze locatie",
     "viewOnMap": "Bekijk op Kaart",
     "openingHours": "Openingstijden",
     "address": "Adres",

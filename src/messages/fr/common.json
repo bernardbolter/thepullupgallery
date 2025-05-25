@@ -28,6 +28,7 @@
     "loading": "Chargement des lieux...",
     "error": "Erreur lors du chargement des lieux",
     "noLocations": "Aucun lieu trouvé",
+    "unnamedLocation": "Lieu sans nom",
     "viewOnMap": "Voir sur la Carte",
     "openingHours": "Heures d'Ouverture",
     "address": "Adresse",

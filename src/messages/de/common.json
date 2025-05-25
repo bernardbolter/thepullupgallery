@@ -28,6 +28,7 @@
     "loading": "Standorte werden geladen...",
     "error": "Fehler beim Laden der Standorte",
     "noLocations": "Keine Standorte gefunden",
+    "unnamedLocation": "Unbenannter Standort",
     "viewOnMap": "Auf Karte anzeigen",
     "openingHours": "Öffnungszeiten",
     "address": "Adresse",

@@ -12,7 +12,9 @@ export default async function LocationsPage() {
                     query GetPullupLocations {
                         pullupLocations {
                             nodes {
+                                id
                                 title
+                                slug
                                 pullupLocation {
                                     lat
                                     lng

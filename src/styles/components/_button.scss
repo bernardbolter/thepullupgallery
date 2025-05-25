@@ -1,0 +1,98 @@
+@use 'sass:map';
+@use 'sass:color';
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+/**
+ * Button Component
+ * Uses BEM methodology for class naming
+ * 
+ * Example usage: 
+ * <button class="button button--primary">Click me</button>
+ * <button class="button button--secondary button--large">Large Button</button>
+ * <button class="button button--outline">
+ *   <span class="button__icon">🔔</span>
+ *   With Icon
+ * </button>
+ */
+
+.button {
+  @include button-reset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: map.get($border-radius, 'DEFAULT');
+  font-weight: map.get($font-weights, 'medium');
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+
+  // Modifiers
+  &--primary {
+    background-color: var(--color-primary);
+    color: white;
+
+    &:hover {
+      background-color: color.scale(map.get($colors, 'primary'), $lightness: -10%);
+    }
+  }
+
+  &--secondary {
+    background-color: var(--color-secondary);
+    color: white;
+
+    &:hover {
+      background-color: color.scale(map.get($colors, 'secondary'), $lightness: -10%);
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    border: 1px solid currentColor;
+    color: var(--color-primary);
+
+    &:hover {
+      background-color: rgba(map.get($colors, 'primary'), 0.1);
+    }
+  }
+
+  &--small {
+    padding: var(--spacing-1) var(--spacing-3);
+    font-size: var(--font-size-sm);
+  }
+
+  &--large {
+    padding: var(--spacing-3) var(--spacing-6);
+    font-size: var(--font-size-lg);
+  }
+
+  // States
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  // Elements
+  &__icon {
+    width: 1em;
+    height: 1em;
+    margin-right: var(--spacing-2);
+  }
+}
+
+// If you need to support older browsers without CSS variables
+@supports not (--css: variables) {
+  .button {
+    padding: map.get($spacing, 2) map.get($spacing, 4);
+    border-radius: map.get($border-radius, 'DEFAULT');
+    font-weight: map.get($font-weights, 'medium');
+
+    &--primary {
+      background-color: map.get($colors, 'primary');
+    }
+
+    &--secondary {
+      background-color: map.get($colors, 'secondary');
+    }
+  }
+}

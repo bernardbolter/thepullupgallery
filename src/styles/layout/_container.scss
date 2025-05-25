@@ -1,0 +1,78 @@
+// Container component
+// Provides a responsive fixed-width container for page content
+// Example usage: <div class="container">...</div>
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 map-get($spacing, 4);
+  
+  @include breakpoint(sm) {
+    max-width: 640px;
+    padding: 0 map-get($spacing, 6);
+  }
+  
+  @include breakpoint(md) {
+    max-width: 768px;
+  }
+  
+  @include breakpoint(lg) {
+    max-width: 1024px;
+  }
+  
+  @include breakpoint(xl) {
+    max-width: 1280px;
+  }
+  
+  @include breakpoint('2xl') {
+    max-width: 1536px;
+  }
+  
+  // Modifiers
+  &--fluid {
+    max-width: 100%;
+  }
+  
+  &--narrow {
+    @include breakpoint(lg) {
+      max-width: 800px;
+    }
+  }
+  
+  &--wide {
+    @include breakpoint(xl) {
+      max-width: 1600px;
+    }
+  }
+}
+
+// Grid layout
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: map-get($spacing, 4);
+  
+  &__item {
+    grid-column: span 12;
+    
+    @for $i from 1 through 12 {
+      &--#{$i} {
+        @include breakpoint(md) {
+          grid-column: span #{$i};
+        }
+      }
+    }
+    
+    &--offset-1 { margin-left: 8.333333%; }
+    &--offset-2 { margin-left: 16.666667%; }
+    &--offset-3 { margin-left: 25%; }
+    &--offset-4 { margin-left: 33.333333%; }
+    &--offset-5 { margin-left: 41.666667%; }
+    &--offset-6 { margin-left: 50%; }
+    &--offset-7 { margin-left: 58.333333%; }
+    &--offset-8 { margin-left: 66.666667%; }
+    &--offset-9 { margin-left: 75%; }
+    &--offset-10 { margin-left: 83.333333%; }
+    &--offset-11 { margin-left: 91.666667%; }
+  }
+}

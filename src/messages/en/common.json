@@ -28,6 +28,7 @@
     "loading": "Loading locations...",
     "error": "Error loading locations",
     "noLocations": "No locations found",
+    "unnamedLocation": "Unnamed Location",
     "viewOnMap": "View on Map",
     "openingHours": "Opening Hours",
     "address": "Address",

@@ -1,0 +1,139 @@
+@use 'sass:map';
+@use 'sass:color';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Reset and base styles
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.5;
+  color: var(--color-dark);
+  background-color: var(--color-white);
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.5em;
+  font-weight: map.get($font-weights, 'bold');
+  line-height: 1.2;
+}
+
+h1 { font-size: var(--font-size-4xl); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
+h5 { font-size: var(--font-size-lg); }
+h6 { font-size: var(--font-size-base); }
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Images
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 0.75rem;
+}
+
+// Lists
+ul, ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+// Buttons
+button, .btn {
+  @include button-reset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: map.get($border-radius, 'DEFAULT');
+  background-color: var(--color-primary);
+  color: white;
+  font-weight: map.get($font-weights, 'medium');
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: color.scale(map.get($colors, 'primary'), $lightness: -10%);
+    text-decoration: none;
+  }
+
+  &--secondary {
+    background-color: map.get($colors, 'secondary');
+    
+    &:hover {
+      background-color: color.scale(map.get($colors, 'secondary'), $lightness: -10%);
+    }
+  }
+}
+
+// Forms
+input,
+button,
+select,
+textarea {
+  font: inherit;
+  margin: 0;
+}
+
+// Utility classes
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--spacing-4);
+  max-width: 1200px;
+}
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+// Responsive helpers
+@each $breakpoint, $value in $breakpoints {
+  @media (min-width: $value) {
+    .hidden-#{$breakpoint}-up {
+      display: none !important;
+    }
+  }
+  
+  @media (max-width: calc($value - 1px)) {
+    .hidden-#{$breakpoint}-down {
+      display: none !important;
+    }
+  }
+}
+
+// Export variables as CSS custom properties
+@include export-vars;

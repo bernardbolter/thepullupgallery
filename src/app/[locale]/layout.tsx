@@ -3,6 +3,7 @@ import {notFound} from 'next/navigation';
 import {getTranslations} from 'next-intl/server';
 import { AuthProvider } from '@/auth/context';
 import ClientHeader from './ClientHeader';
+import '@/styles/index.scss';
 
 // Define supported locales
 const locales = ['en', 'es', 'fr', 'de', 'nl'];

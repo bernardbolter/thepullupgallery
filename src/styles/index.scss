@@ -1,0 +1,32 @@
+// 1. Configuration and helpers
+@use 'variables';
+// @use 'mixins' as *;
+
+// 3. Base styles
+@use 'base';
+
+// 4. Layout-related sections
+// @use 'layout/container';
+
+// 5. Components
+// @use 'components/button';
+@use 'components/locations-map';
+@use 'components/main-navigation';
+@use 'components/auth-navigation';
+// @use 'components/card';
+// @use 'components/header';
+// @use 'components/footer';
+// @use 'components/form';
+
+// 6. Page-specific styles
+// @use 'pages/home';
+// @use 'pages/about';
+
+// 7. Utilities
+// @use 'utils/utilities';
+
+// 8. Shame file for quick fixes (delete when refactored)
+// @use 'shame';
+
+// 2. Export CSS custom properties from variables
+@include variables.export-vars;
