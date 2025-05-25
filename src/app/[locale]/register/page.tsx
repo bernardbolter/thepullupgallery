@@ -26,11 +26,36 @@ export default function RegisterPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log('Starting registration process...');
+    
+    // Basic client-side validation
+    if (!credentials.username || !credentials.email || !credentials.password) {
+      console.error('Validation failed: Missing required fields');
+      return;
+    }
+    
     try {
+      console.log('Attempting to register with credentials:', {
+        ...credentials,
+        password: '*'.repeat(credentials.password.length) // Don't log actual password
+      });
+      
       await register(credentials);
-      router.push('/');
-    } catch (err) {
-      // Error is handled in the auth context
+      console.log('Registration successful, redirecting to dashboard...');
+      
+      // Get the current locale from the URL
+      const locale = window.location.pathname.split('/')[1];
+      router.push(`/${locale}/dashboard`);
+    } catch (err: any) {
+      console.error('Registration error:', {
+        name: err.name,
+        message: err.message,
+        stack: err.stack,
+        response: err.response
+      });
+      
+      // The error will be displayed by the auth context
+      console.log('Error state after registration failure:', { isLoading, error });
     }
   };
 
@@ -123,7 +148,7 @@ export default function RegisterPage() {
           disabled={isLoading}
           className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 disabled:bg-blue-300"
         >
-          {isLoading ? t('registering', { defaultMessage: 'Registering...' }) : t('register', { defaultMessage: 'Register' })}
+          {isLoading ? t('registering') : t('register')}
         </button>
       </form>
       

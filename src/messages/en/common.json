@@ -5,6 +5,8 @@
     "switchLanguage": "Select your language",
     "login": "Login",
     "register": "Register",
+    "accountAccess": "Account Access",
+    "dashboard": "Dashboard",
     "welcomeBack": "Welcome back!",
     "languages": {
       "en": "English",
@@ -35,6 +37,10 @@
     "welcomeBack": "Welcome back!",
     "createAccount": "Create your account",
     "loggingIn": "Logging in...",
+    "registering": "Creating account...",
+    "externalRegistrationTitle": "Complete Registration on WordPress",
+    "externalRegistrationMessage": "To complete your registration, you need to register directly on our WordPress site.",
+    "externalRegistrationButton": "Register on WordPress",
     "errors": {
       "required": "This field is required",
       "emailInvalid": "Please enter a valid email address",

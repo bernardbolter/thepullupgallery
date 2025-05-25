@@ -5,6 +5,8 @@
     "switchLanguage": "Selecteer taal",
     "login": "Inloggen",
     "register": "Registreren",
+    "accountAccess": "Accounttoegang",
+    "dashboard": "Dashboard",
     "welcomeBack": "Welkom terug!",
     "languages": {
       "en": "Engels",

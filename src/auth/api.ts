@@ -1,12 +1,15 @@
 import { LoginCredentials, RegisterCredentials, User } from './types';
-import { env } from '@/env';
 
-// Get WordPress URL from environment variables
-const WP_API_URL = env.WORDPRESS_URL;
+// Helper function to get the API base URL that works with locale routing
+function getApiUrl(endpoint: string): string {
+  // API routes should always be accessed from the root, not from the locale path
+  return `/api/auth/${endpoint}`;
+}
 
-// Login with WordPress credentials
+// Login with WordPress credentials via server-side API
 export async function loginUser(credentials: LoginCredentials): Promise<User> {
-  const response = await fetch(`${WP_API_URL}/wp-json/jwt-auth/v1/token`, {
+  console.log('Logging in via server-side API');
+  const response = await fetch(getApiUrl('login'), {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -14,88 +17,75 @@ export async function loginUser(credentials: LoginCredentials): Promise<User> {
     body: JSON.stringify(credentials),
   });
 
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.message || 'Failed to login');
-  }
-
   const data = await response.json();
   
-  // Store the token in localStorage (client-side only)
-  if (typeof window !== 'undefined') {
-    localStorage.setItem('wp_token', data.token);
+  if (!response.ok) {
+    throw new Error(data.error || 'Failed to login');
   }
   
-  // Get user data
-  return getUserData(data.token);
+  return data.user;
 }
 
-// Register a new user
-export async function registerUser(credentials: RegisterCredentials): Promise<User> {
-  const response = await fetch(`${WP_API_URL}/wp-json/wp/v2/users/register`, {
-    method: 'POST',
+// Register a new user via server-side API
+export async function registerUser(credentials: RegisterCredentials): Promise<User | { externalRegistration: boolean; wordpressUrl: string }> {
+  try {
+    console.log('Attempting to register user via server-side API');
+    
+    const response = await fetch(getApiUrl('register'), {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(credentials),
+    });
+
+    const data = await response.json();
+    
+    // Check if the response indicates external registration is required
+    if (response.ok && data.externalRegistration) {
+      console.log('External registration required:', data.message);
+      return {
+        externalRegistration: true,
+        wordpressUrl: data.wordpressUrl
+      };
+    }
+    
+    if (!response.ok) {
+      console.error('Registration failed with status:', response.status);
+      console.error('Error response:', data);
+      throw new Error(data.error || 'Failed to register');
+    }
+    
+    return data.user;
+  } catch (error) {
+    console.error('Error in registerUser:', error);
+    throw error;
+  }
+}
+
+// Get current user data via server-side API
+export async function getUserData(): Promise<User> {
+  const response = await fetch(getApiUrl('user'), {
+    method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
-      username: credentials.username,
-      email: credentials.email,
-      password: credentials.password,
-      first_name: credentials.firstName,
-      last_name: credentials.lastName,
-    }),
   });
 
+  const data = await response.json();
+  
   if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.message || 'Failed to register');
+    console.error('Failed to get user data:', data.error);
+    throw new Error(data.error || 'Failed to get user data');
   }
 
-  // After registration, log the user in
-  return loginUser({
-    username: credentials.username,
-    password: credentials.password,
-  });
+  console.log('User data from API:', data.user);
+  return data.user;
 }
 
-// Get current user data
-export async function getUserData(token?: string): Promise<User> {
-  let authToken = token;
-  
-  // If no token is provided, try to get it from localStorage (client-side only)
-  if (!authToken && typeof window !== 'undefined') {
-    const storedToken = localStorage.getItem('wp_token');
-    if (storedToken) {
-      authToken = storedToken;
-    }
-  }
-  
-  if (!authToken) {
-    throw new Error('No authentication token found');
-  }
-
-  // Use context=edit to get all user data (including email and roles)
-  const response = await fetch(`${WP_API_URL}/wp-json/wp/v2/users/me?context=edit`, {
-    headers: {
-      'Authorization': `Bearer ${authToken}`,
-    },
-  });
-
-  if (!response.ok) {
-    const error = await response.text();
-    console.error('Failed to get user data:', error);
-    throw new Error('Failed to get user data');
-  }
-
-  const userData = await response.json();
-  console.log('User data from API:', userData);
-  return userData;
-}
-
-// Logout user
+// Logout user via server-side API
 export async function logoutUser(): Promise<void> {
-  if (typeof window !== 'undefined') {
-    localStorage.removeItem('wp_token');
-  }
-  // You might want to call a WordPress logout endpoint if available
+  await fetch(getApiUrl('user'), {
+    method: 'DELETE',
+  });
 }

@@ -5,6 +5,8 @@
     "switchLanguage": "Selecciona tu idioma",
     "login": "Iniciar sesión",
     "register": "Registrarse",
+    "accountAccess": "Acceso a la cuenta",
+    "dashboard": "Panel de control",
     "welcomeBack": "¡Bienvenido de nuevo!",
     "languages": {
       "en": "Inglés",
@@ -35,6 +37,7 @@
     "welcomeBack": "¡Bienvenido de nuevo!",
     "createAccount": "Crea tu cuenta",
     "loggingIn": "Iniciando sesión...",
+    "registering": "Creando cuenta...",
     "errors": {
       "required": "Este campo es obligatorio",
       "emailInvalid": "Por favor ingresa un correo electrónico válido",

@@ -5,6 +5,8 @@
     "switchLanguage": "Choisir la langue",
     "login": "Connexion",
     "register": "S'inscrire",
+    "accountAccess": "Accès au compte",
+    "dashboard": "Tableau de bord",
     "welcomeBack": "Content de vous revoir !",
     "languages": {
       "en": "Anglais",
@@ -35,6 +37,7 @@
     "welcomeBack": "Content de vous revoir !",
     "createAccount": "Créer un compte",
     "loggingIn": "Connexion en cours...",
+    "registering": "Création du compte en cours...",
     "errors": {
       "required": "Ce champ est obligatoire",
       "emailInvalid": "Veuillez entrer une adresse e-mail valide",

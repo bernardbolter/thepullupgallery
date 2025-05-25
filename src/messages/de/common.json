@@ -5,6 +5,8 @@
     "switchLanguage": "Sprache auswählen",
     "login": "Anmelden",
     "register": "Registrieren",
+    "accountAccess": "Konto-Zugang",
+    "dashboard": "Dashboard",
     "welcomeBack": "Willkommen zurück!",
     "languages": {
       "en": "Englisch",

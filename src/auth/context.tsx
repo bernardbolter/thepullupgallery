@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useReducer, useEffect } from 'react';
+import React, { createContext, useReducer, useEffect, useState } from 'react';
 import { AuthContextType, AuthState, LoginCredentials, RegisterCredentials } from './types';
 import { getUserData, loginUser, logoutUser, registerUser } from './api';
 
@@ -69,10 +69,12 @@ export const AuthContext = createContext<AuthContextType>({
   register: async () => {},
   logout: async () => {},
   clearError: () => {},
+  externalRegistrationUrl: null,
 });
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
+  const [externalRegistrationUrl, setExternalRegistrationUrl] = useState<string | null>(null);
 
   // Log user info when authentication state changes
   useEffect(() => {
@@ -89,25 +91,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   useEffect(() => {
     const loadUser = async () => {
       try {
-        // Only run on client side
-        if (typeof window === 'undefined') {
-          dispatch({ type: 'SET_LOADING', payload: false });
-          return;
-        }
+        // Set loading state
+        dispatch({ type: 'SET_LOADING', payload: true });
         
-        const token = localStorage.getItem('wp_token');
-        
-        if (!token) {
-          dispatch({ type: 'SET_LOADING', payload: false });
-          return;
-        }
-        
-        const userData = await getUserData(token);
+        // Get user data from server - this will use the HTTP cookie automatically
+        const userData = await getUserData();
         dispatch({ type: 'LOGIN_SUCCESS', payload: userData });
       } catch (error) {
-        if (typeof window !== 'undefined') {
-          localStorage.removeItem('wp_token');
-        }
+        // If error, user is not authenticated
         dispatch({ type: 'LOGIN_FAILURE', payload: 'Session expired. Please login again.' });
       }
     };
@@ -130,10 +121,21 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   // Register function
   const register = async (credentials: RegisterCredentials) => {
     dispatch({ type: 'SET_LOADING', payload: true });
+    setExternalRegistrationUrl(null); // Reset external registration URL
     
     try {
-      const userData = await registerUser(credentials);
-      dispatch({ type: 'REGISTER_SUCCESS', payload: userData });
+      const result = await registerUser(credentials);
+      
+      // Check if the result indicates external registration is required
+      if ('externalRegistration' in result && result.externalRegistration) {
+        console.log('External registration required');
+        setExternalRegistrationUrl(result.wordpressUrl);
+        dispatch({ type: 'SET_LOADING', payload: false });
+        return;
+      }
+      
+      // Normal registration flow
+      dispatch({ type: 'REGISTER_SUCCESS', payload: result });
     } catch (error: any) {
       dispatch({ type: 'REGISTER_FAILURE', payload: error.message });
     }
@@ -158,6 +160,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         register,
         logout,
         clearError,
+        externalRegistrationUrl,
       }}
     >
       {children}
