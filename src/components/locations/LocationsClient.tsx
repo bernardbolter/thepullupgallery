@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import MainNavigation from '@/components/navigation/MainNavigation';
 import type { LocationMapProps } from '@/components/locations/LocationMap';
+import LocationButton from '@/components/locations/LocationButton';
 
 // Define interfaces for our data structure
 interface Location {
@@ -73,6 +74,7 @@ export default function LocationsClient({ initialLocations }: LocationsClientPro
     <div className="locations-client__container">
       <MainNavigation />
       <LocationMap locations={initialLocations} userLocation={userLocation} />
+      <LocationButton />
     </div>
   );
 }
