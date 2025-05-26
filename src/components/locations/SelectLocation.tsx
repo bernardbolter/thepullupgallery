@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import { useAuth } from '@/auth/hooks';
 
 interface SelectLocationProps {
   isOpen: boolean;
@@ -68,31 +69,82 @@ export default function SelectLocation({ isOpen, onClose }: SelectLocationProps)
     }
   };
 
+  // Get current user information from auth context
+  const { user, isAuthenticated } = useAuth();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Create location object
-    const newLocation = {
-      title,
-      description,
-      pullupLocation: position ? {
-        lat: position[0],
-        lng: position[1]
-      } : null,
-      image
-    };
+    // Validate required fields
+    if (!title.trim()) {
+      setSubmitError(t('enterLocationTitle'));
+      return;
+    }
     
-    console.log('New location:', newLocation);
-    // Here you would typically send this data to your API
+    if (!isAuthenticated || !user) {
+      setSubmitError(t('authRequired'));
+      return;
+    }
     
-    // Reset form and close modal
-    setTitle('');
-    setDescription('');
-    setPosition(null);
-    setImage(null);
-    setImagePreview(null);
-    onClose();
+    if (!position) {
+      setSubmitError(t('selectLocationOnMap'));
+      return;
+    }
+    
+    setIsSubmitting(true);
+    setSubmitError(null);
+    setSubmitSuccess(false);
+    
+    try {
+      // Create FormData object for multipart/form-data submission
+      const formData = new FormData();
+      formData.append('title', title.trim());
+      formData.append('description', description.trim());
+      formData.append('latitude', position[0].toString());
+      formData.append('longitude', position[1].toString());
+      formData.append('userId', user.id.toString());
+      
+      // Add image if available
+      if (image) {
+        formData.append('image', image);
+      }
+      
+      // Submit to API
+      const response = await fetch('/api/locations', {
+        method: 'POST',
+        body: formData,
+      });
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || t('submitLocationError'));
+      }
+      
+      const result = await response.json();
+      console.log('Location submitted successfully:', result);
+      setSubmitSuccess(true);
+      
+      // Reset form and close modal after a short delay
+      setTimeout(() => {
+        setTitle('');
+        setDescription('');
+        setPosition(null);
+        setImage(null);
+        setImagePreview(null);
+        setSubmitSuccess(false);
+        onClose();
+      }, 2000);
+      
+    } catch (error) {
+      console.error('Error submitting location:', error);
+      setSubmitError(error instanceof Error ? error.message : 'An unknown error occurred');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Prevent scrolling on body when modal is open
@@ -207,20 +259,33 @@ export default function SelectLocation({ isOpen, onClose }: SelectLocationProps)
             )}
           </div>
           
+          {submitError && (
+            <div className="select-location__error-message">
+              {submitError}
+            </div>
+          )}
+          
+          {submitSuccess && (
+            <div className="select-location__success-message">
+              {t('locationSubmitSuccess')}
+            </div>
+          )}
+          
           <div className="select-location__form-actions">
             <button 
               type="button" 
               onClick={onClose} 
               className="select-location__cancel-button"
+              disabled={isSubmitting}
             >
               {t('cancel')}
             </button>
             <button 
               type="submit" 
               className="select-location__submit-button"
-              disabled={!position || !title}
+              disabled={!position || !title || isSubmitting}
             >
-              {t('submit')}
+              {isSubmitting ? t('submitting') : t('submit')}
             </button>
           </div>
         </form>

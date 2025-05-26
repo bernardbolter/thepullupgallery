@@ -52,7 +52,14 @@
     "longitude": "Longitude",
     "locationImage": "Upload Image",
     "cancel": "Cancel",
-    "submit": "Submit Location"
+    "submit": "Submit Location",
+    "submitting": "Submitting...",
+    "locationSubmitSuccess": "Location submitted successfully! Thank you for your contribution.",
+    "authRequired": "You must be logged in to submit a location",
+    "selectLocationOnMap": "Please select a location on the map",
+    "submitLocationError": "Failed to submit location. Please try again.",
+    "imageUploadError": "Error uploading image. Please try again.",
+    "invalidCoordinates": "Please select a valid location on the map"
   },
   "Navigation": {
     "home": "Home",

@@ -65,7 +65,12 @@
     "home": "Home",
     "ar": "AR",
     "artists": "Kunstenaars",
-    "locations": "Locaties"
+    "locations": "Locaties",
+    "locationsList": "Lijst met locaties",
+    "searchLocations": "Zoek locaties...",
+    "noLocationsFound": "Geen locaties gevonden",
+    "addNewLocation": "Nieuwe locatie toevoegen",
+    "toggleLocationsList": "Locatielijst tonen/verbergen"
   },
   "Auth": {
     "artists": "Kunstenaars",
